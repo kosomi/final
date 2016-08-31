@@ -1,0 +1,35 @@
+<div ng-controller="mainPageController"> 
+ 
+    <div class="alert alert-positive"> 
+		<table >
+			<tr align='center'>
+				<td width='320px' align='left'>제목 </td> 
+				<td width='160px'>덧글</td> 
+				<td width='130px'>Like </td>
+				<td width='260px'>글쓴 날짜</td>
+				<td width='180px'>거리</td>
+				<td width='180px'>조회수</td>
+				<td width='130px'><a href="">Delete</a></td>
+			</tr>
+		</table> 
+    </div> 
+  
+    <div ng-repeat="thread in threads | orderBy: '-time12' | limitTo:6" class="alert alert-info">
+		<a ng-href="#/thread/{{thread.$id}}" ng-click='upCount(thread)'>
+			<table border='0'>
+				<tr align='center'>
+					<td width='240px' align='left'>{{thread.title | limitTo:20}}</td>
+					<td width='130px' ng-show={{thread.comments.length}}>Comment: {{thread.comments.length}}</td>
+					<td width='130px' ng-hide={{thread.comments.length}} > </td>
+					<td width='130px'>Like {{thread.like}}</td> 
+					<td width='190px'>{{thread.time12 | date:"MM/dd/yyyy 'at' h:mma"}}</td> 
+					<td width='120px' class="alert alert-danger">{{thread.dist}} Miles</td>  
+					<td width='120px'>Count: {{thread.count}}</td>  
+				</tr>
+			</table> 
+		</a>
+    </div>    
+    <div>
+    	<button onclick="window.location.href='/#/write'" class="btn btn-info" style="width:100%">Write</button>
+    </div>
+</div> 

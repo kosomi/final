@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>Document</title> 
+<link rel="stylesheet" href="assets/bootstrap.css">
+</head>
+<body style='padding: 30px'>
+
+	<h1><a href="#/">풍뎅이님의 작품</a></h1>
+ 
+	<table>
+		<tr> 
+			<td>
+				
+			<ol class="breadcrumb">
+			  <li><a href="#/">Home</a></li>
+			  <li><a href="#/write">Write</a></li> 
+			  <li><a href="#/">최신글 (준비중)</a></li> 
+			  <li><a href="#/">최신 코멘트 (준비중)</a></li> 
+			  <li><a href="#/">방문자수: (준비중)</a></li> 
+			</ol>
+
+			<div class="container" ng-view></div>	
+
+			</td>
+		</tr> 
+	</table>  
+
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCnI89R9_5DcPldlSNI8gI5h0JjVoAQfKQ"></script>
+	<!-- AngularJS -->
+	<script src="assets/angular.min.js"></script>
+	<!-- Firebase -->
+	<script src="assets/firebase.js"></script>
+	<!-- AngularFire -->
+	<script src="assets/angularfire.min.js"></script>
+	<script src="assets/angular-route.js"></script> 
+	<script src="assets/ng-Cordova.js"></script> 
+ 
+	<script src="app.js"></script>
+	<script src="pages/main/main.js"></script> 	
+	<script src="pages/write/write.js"></script> 	
+	<script src="pages/thread/thread.js"></script> 	
+	<script src="services/threadService.js"></script> 	
+
+</body>
+</html>

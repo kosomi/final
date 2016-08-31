@@ -1,0 +1,17 @@
+<div ng-controller="writePageController">  
+
+    <div class="alert alert-info"> 
+        <input type="text" ng-model='OriginUser' maxlength='10' placeholder=" Your name "/ size="25"> <br><br>
+        <input type="text" ng-model='newThreadTitle' maxlength='25' placeholder=" Store name "/ size="25" required> <br><br>
+        <input type="text" ng-model='phone' maxlength='125' placeholder=" phone"/ size="35"> <br><br>
+        <input type="text" ng-model='category' maxlength='125' placeholder=" category"/ size="35"> <br><br>
+        <input type="text" ng-model='address' maxlength='225' placeholder=" address"/ size="90"> <br><br>
+        <input type="text" ng-model='image1' maxlength='1225' placeholder=" image1"/ size="90"> <br><br>
+        <input type="text" ng-model='image2' maxlength='1225' placeholder=" image2"/ size="90"> <br><br>
+        <input type="text" ng-model='image3' maxlength='1225' placeholder=" image3"/ size="90"> <br><br>
+        <textarea name="random value" cols="100" rows="6" ng-model='Text12' maxlength='400' placeholder=" New text..."></textarea>
+        <br><br>
+        <button ng-click="addThread();logout()" class="btn btn-info" style="width:100%">Add thread</button> 
+    </div> 
+
+</div>

@@ -1,0 +1,56 @@
+<div ng-controller="threadPageController">  
+    <div class="alert alert-info"> 
+
+        <h2>{{thread.title}}</h2>         
+        <h2><img src="{{thread.image1}}" width='250px'></h2><br> 
+
+        <strong>{{thread.username}} </strong> <br> 
+        <strong>{{thread.like}} </strong> 
+        <a ng-click='like(thread)'> people Recommended</a> {{thread.count}} counts<br>
+        {{thread.time12 | date: 'medium'}}<br><br>
+
+        <b>Address:</b> {{thread.address}}<br>
+        <b>Location.lat:</b> {{thread.lat}}<br>
+        <b>Location.lng:</b> {{thread.lng}}<br> 
+        <h3>{{thread.Text12}}</h3>  
+
+        <hr>
+        덧글 남기기 <br><br>
+
+        <input type="text" ng-model="newCUser" placeholder="Your name..." maxlength='15' size="25"> <br><br> 
+        <textarea ng-model="newComment" cols="27" rows="7" ng-model='Text12' maxlength='100' placeholder="Write a comment..."></textarea>
+        <br><br>
+        <button ng-click="addComment()" class="btn btn-info">덧글 달기</button>
+    </div>   
+    <div class="alert alert-info"> 
+
+        <div ng-repeat="comment in thread.comments |orderBy:'-upVote'">
+        <b>{{comment.newCUser}}:</b> {{comment.text}} <br> {{thread.time12 | date: 'MMM d'}}
+        <a ng-click=ShowReply($index)>Reply</a> 
+        <a ng-click=upVote(comment)>Like {{comment.upVote}}</a>
+
+            <br><br>
+            <ul class="reply-list">
+                <li ng-repeat="reply in comment.replies">
+                    <p><b>{{reply.username}}</b>: {{reply.text}}</p> 
+                </li>
+            </ul> 
+            
+            <ul ng-show = 'IsVisible == $index'>
+                <li>
+                    <div class='alert alert-default'>
+                    <form class="replyForm">
+                        <input ng-model="comm.replyUser" class="deck" maxlength='15' size="25" type="text" placeholder="User" required> <br><br> 
+                        <textarea ng-model="comm.replyValue" cols="27" rows="7" ng-model='Text12' maxlength='100' placeholder="Write a comment..."></textarea><br><br>
+                        <input ng-click="addReply(comm, $index)"  class="btn btn-info" type="submit" value="Add Reply" class="blue-btn">
+                    </form> 
+                    </div>
+                </li>
+            </ul>  
+
+            <hr ng-hide='thread.comments.length - $index == 1'>   
+        </div>   
+        <div ng-if="!thread.comments.length">코멘트 없쪄염 달아주세염</div> 
+    </div>  
+    <button onclick="window.location.href='/#/main'" class="btn btn-info"  style="width:100%">Back</button><br> <br>
+</div>
